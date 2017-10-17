@@ -438,7 +438,7 @@ contshot    inc SHOTFIRED       ; jeśli nie - ustaw flagę SHOTFIRED=1
             rts
 
 move        ldy #0              ; procedura kopiująca LENPTR bajtów z MVSRCE do MVDEST
-            sty MVSRCE+1        ; dane to kopiowania znajdują się na stronie zerowej
+            sty MVSRCE+1        ; dane do kopiowania znajdują się na stronie zerowej
             ldx LENPTR          ; procedura kopiuje maksymalnie 255 bajtów
 mvlast      lda (MVSRCE),y      ; z MVSRCE
             sta (MVDEST),y      ; do MVDEST
