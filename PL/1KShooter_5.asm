@@ -350,7 +350,7 @@ right       tya                 ; odczytaj pozycję joysticka zachowaną w rejes
             bne endmove         ; w przeciwnym wypadku koniec sprawdzania
             cpx #200            ; jeśli osiągnęliśmy już prawą stronę (200=$C8)
             bcs endmove         ; to kończymy sprawdzanie joysticka
-            inc POSH            ; a jeśli nie, przesuwamy statek o jedną pozycję w lewo
+            inc POSH            ; a jeśli nie, przesuwamy statek o jedną pozycję w prawo
 endmove
 
             lda SCROLLCOUNT     ; załaduj licznik przewiniętych zgrubnie znaków
