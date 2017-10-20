@@ -27,8 +27,8 @@
             PMBASE = $d407            ; A pointer to the memory used for P/M graphics (write)
             NMIEN  = $d40e            ; Non-Maskable Interrupt (NMI) Enable
             WSYNC  = $d40a            ; Wait For Horizontal Sync 
-                                      ; A write to this register halts the 6502 program 
-                                      ; through the end of the current scanline
+                                      ; A write to this register halts the 6502 
+                                      ; until the end of the current scanline
             PMBASEADR = $3000         ; P/M memory address
             PMDATA1 = PMBASEADR+$200  ; First player P/M data address
             PMDATA2 = PMBASEADR+$280  ; Second player P/M data address
@@ -190,7 +190,7 @@ playerinit  sta HITCLR           ; clear P/M collision detection registers
             lda #STARTPOSH
             sta POSH
 
-main        lda P0PF            ; was there a first player collision?
+main        lda P0PF            ; was there a collision of the first player?
             beq prepmove        ; if not, let's continue the game
 
 gameover    lda #$8f            ; if yes, game over
@@ -240,20 +240,20 @@ wait        cmp TIMER           ; has it changed?
 checkmove
 vertical    ldx POSV            ; load current vertical spaceship position
             stx AUDF1           ; it has influence on the sound frequency
-            lda #$83            ; and playing with AUDC1 register we can get
-            sta AUDC1           ; distorted sound similar to a spaceship
+            lda #$83            ; by playing with AUDC1 register we can get
+            sta AUDC1           ; distorted sound similar to a spaceship sound
 up          lda STICK0          ; load joystick position
             tay                 ; store it in Y
             and #%00000001      ; up? (is bit 0 of the STICK0 register equal 0?)
             bne down            ; otherwise check if down
             cpx #32             ; if we reached the upper limit (31=$1F) 
-            bcc horizontal      ; then we check the horizontal move
+            bcc horizontal      ; then check the horizontal move
             dec POSV            ; if not, move the spaceship up
 down        tya                 ; load joystick position from Y
             and #%00000010      ; down? (is bit 1 of the STICK0 register equal 0?)
             bne horizontal      ; otherwise check the horizontal move
             cpx #84             ; if we reached the lower limit (84=$54)
-            bcs horizontal      ; then we check the horizontal move
+            bcs horizontal      ; then check the horizontal move
             inc POSV            ; if not, move the spaceship down
 horizontal  ldx POSH            ; load current horizontal spaceship position
 left        tya                 ; load joystick position from Y

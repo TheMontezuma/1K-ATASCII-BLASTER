@@ -15,8 +15,8 @@
             RANDOM = $d20a            ; Random number generator
             NMIEN  = $d40e            ; Non-Maskable Interrupt (NMI) Enable
             WSYNC  = $d40a            ; Wait For Horizontal Sync 
-                                      ; A write to this register halts the 6502 program 
-                                      ; through the end of the current scanline
+                                      ; A write to this register halts the 6502 
+                                      ; until the end of the current scanline
             ANTICMODE = $57+$80       ; Default ANTIC-a mode for playfield lines
             WIDTH = 32                ; Width of the virtual screen (in characters)
             BGCOL = 12                ; Number of lines to be colored in DLI
