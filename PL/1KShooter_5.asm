@@ -559,7 +559,7 @@ byteonly    sta LMS1,x          ; wynik zapisz w adresie danych obrazu wiersza X
             lda LMS1+1,x
             sta MVDEST+1
 
-            ldy #WIDTH-1        ; załaduj WITDH do Y (licznik pętli) 
+            ldy #WIDTH-1        ; załaduj WITDH-1 do Y (licznik pętli) 
 mirror      lda (MVSRCE),y      ; skopiuj dane obrazu
             sta (MVDEST),y      ; o 32 bajty wstecz
             dey
@@ -584,7 +584,7 @@ done        dex                 ; definicja wierszy pola gry składa się z 3 ba
             lda #CLOCKS         ; załaduj liczbę cykli koloru do przewijania (8)
             sta SCROLLPOS       ; ustaw liczbę pikseli do przewinięcia
             sta HSCROL          ; wpisz ją do rejestru sprzętowego
-            dec SCROLLPOS       ; 
+            dec SCROLLPOS       ; zmniejsz o 1 liczbę pikseli do przewinięcia
 
 exitvbi     jmp $e45f           ; SYSVBV
 
