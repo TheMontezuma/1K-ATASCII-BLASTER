@@ -8,7 +8,7 @@ DataMatrix (and related code in the game) by [Piotr Fusik](https://github.com/pf
 
 ### HSC
 
-[HSC](https://github.com/TheMontezuma/1K-ATASCII-BLASTER/tree/master/HSC) folder contains source code and graphics for the [HI-SCORE](http://xxl.atari.pl/hsc/) compatible version of the game
+[HSC](https://github.com/TheMontezuma/1K-ATASCII-BLASTER/tree/master/HSC) folder contains source code and graphics for the [HI SCORE CAFÉ](http://xxl.atari.pl/hsc/) compatible version of the game
 
 Additionally to showing a HSC DataMatrix, the game sends a "URL submit" SIO command to the "Smart device":
 
