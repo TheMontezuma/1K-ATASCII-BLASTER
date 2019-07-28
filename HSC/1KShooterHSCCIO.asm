@@ -725,7 +725,6 @@ urlRecord
     bpl urlRecord
     mva #DataMatrix_EOF DataMatrix_data+url_len
 
-    jsr write2Bdevice    ; submit HSC via CIO
     jsr DataMatrix_code  ; calculate DataMatrix
 
 ; setup screen for DataMatrix
@@ -765,6 +764,8 @@ urlGfxSrc   equ *-2
     jsr urlClr
     cpx #240
     bcc urlGfxLine
+
+    jsr write2Bdevice    ; submit HSC via CIO
 
     jsr:rne space ; wait for SPACE key pressed
     jmp game_init ; game_init ends with RTS, so let's jump there
