@@ -9,6 +9,7 @@ DataMatrix_SIZE equ 24
 
 ; symbolic names for CIO
             IOCB   equ $0340
+            ICCHID equ IOCB+0
             ICCMD  equ IOCB+2
             ICBAL  equ IOCB+4
             ICBAH  equ IOCB+5
@@ -781,7 +782,11 @@ urlClr
     rts
 
 write2Bdevice
-    LDX #$10 ; channel 1
+    JSR lookup
+    BPL do_cio
+    RTS
+
+do_cio
     LDA #$03 ; open
     STA ICCMD,X
     LDA #<browser_device
@@ -798,7 +803,6 @@ write2Bdevice
     STA ICAX2,X
     JSR CIOV
     
-    LDX #$10
     LDA #$09 ; write
     STA ICCMD,X
     LDA #<url
@@ -811,7 +815,19 @@ write2Bdevice
     STA ICBLL,X
     JSR CIOV
     
-    LDX #$10
     LDA #$0C ; close
     STA ICCMD,X
     JMP CIOV
+
+LOOKUP  LDX #$00 ; search for a free CIO channel
+        LDY #$01
+LOOP    LDA ICCHID,X
+        CMP #$FF
+        BEQ FOUND
+        TXA
+        CLC
+        ADC #$10
+        TAX
+        BPL LOOP
+        LDY #-95 ; error code "TOO MANY CHANNELS OPEN"
+FOUND   RTS      ; X contains the offset for a channel
