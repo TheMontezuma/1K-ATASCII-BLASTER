@@ -4,13 +4,13 @@ A computer game for the ATARI home computers by [Frederik Holst](http://www.phob
 
 DataMatrix (and related code in the game) by [Piotr Fusik](https://github.com/pfusik/datamatrix6502)
 
-[EN](https://github.com/TheMontezuma/1K-ATASCII-BLASTER/tree/master/EN) / [PL](https://github.com/TheMontezuma/1K-ATASCII-BLASTER/tree/master/PL) folders contain source code of the game (5 programming steps) with english / polish comments
+[EN](https://github.com/TheMontezuma/1K-ATASCII-BLASTER/tree/master/EN) / [PL](https://github.com/TheMontezuma/1K-ATASCII-BLASTER/tree/master/PL) / [DE](https://github.com/TheMontezuma/1K-ATASCII-BLASTER/tree/master/DE) folders contain source code of the game (5 programming steps) with English / Polish / German comments
 
 ### HSC
 
 [HSC](https://github.com/TheMontezuma/1K-ATASCII-BLASTER/tree/master/HSC) folder contains source code and graphics for the [HI SCORE CAFÉ](http://xxl.atari.pl/hsc/) compatible version of the game
 
-Additionally to showing a HSC DataMatrix, the game sends a "URL submit" SIO command to the "Smart device":
+In addition to showing a HSC DataMatrix, the game sends a "URL submit" SIO command to the "Smart device":
 
 * SIO DDEVIC: $45
 * SIO DUNIT: $01
@@ -31,6 +31,6 @@ This command can be used for example to submit the Hi-Score information.
 
 The Smart Device is supported by:
 
-* [RespeQt](https://github.com/jzatarski/RespeQt/releases) (WIndows/Linux/Mac)
+* [RespeQt](https://github.com/jzatarski/RespeQt/releases) (Windows/Linux/Mac)
 * [SIO2BT](https://play.google.com/store/apps/details?id=org.atari.montezuma.sio2bt) Android App
 * [AspeQt](https://play.google.com/store/apps/details?id=org.qtproject.example.AspeQt&hl=de) Android App
