@@ -633,8 +633,8 @@ exitdli     pla                 ; pull a value from the stack
             pla                 ; pull a value from the stack (keep it in the Accumulator)
             rti                 ; return from the interrupt
 
-game_init   lda #%00101011       ; ‭DMA active for DL and P/M
-            sta SDMCTL           ; + P/M double line resolution +‬ wide screen
+game_init   lda #%00101011       ; DMA active for DL and P/M
+            sta SDMCTL           ; + P/M double line resolution + wide screen
 
             lda #<DLIST          ; install DL
             sta SDLSTL

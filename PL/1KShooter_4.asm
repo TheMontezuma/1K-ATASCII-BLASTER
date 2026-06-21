@@ -128,7 +128,7 @@ SCORETXT    .byte "SCORE:0000"
 
             org $2000
                 
-start       lda #%00101011       ; ‭aktywne DMA dla DL i P/M + 2 liniowe P/M +‬ szeroki ekran
+start       lda #%00101011       ; aktywne DMA dla DL i P/M + 2 liniowe P/M + szeroki ekran
             sta SDMCTL
 
             lda #<DLIST          ; zainstaluj DL

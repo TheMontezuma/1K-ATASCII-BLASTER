@@ -38,7 +38,7 @@ LMS1        .word line2               ; screen memory address
             org $2000
                 
 start       lda #%00101011       ; ‭DMA active for DL and P/M 
-            sta SDMCTL           ; + P/M double line resolution +‬ wide screen
+            sta SDMCTL           ; + P/M double line resolution + wide screen
 
             lda #<DLIST          ; install DL
             sta SDLSTL
